@@ -1,75 +1,38 @@
-# React + TypeScript + Vite
+# 📚 Lesson Reminder App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A real-time, automated classroom timetable tracker and scheduling web application. It displays your current schedule, tracks live lesson status changes, and triggers native browser desktop notifications 10 minutes before any upcoming class starts.
 
-Currently, two official plugins are available:
+## Live Demo
+The application is automatically built and securely hosted on **AWS**.
+**[View Live Deployment](https://your-aws-deployment-url-here.com)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
+- **Live Visual Clock:** A synchronized high-precision ticking clock showing hours, minutes, and seconds.
+- **Dynamic Lesson States:** Instantly filters and breaks down your timeline into *Current Lesson*, *Next Lesson*, and *Today's Schedule*.
+- **Smart System Notifications:** Automatically triggers native desktop push alerts exactly 10 minutes prior to a class starting using the browser `Notification` API.
+- **Custom Visual Branding:** Fully styled using Tailwind CSS with streamlined internal custom asset delivery.
 
-## React Compiler
+## Tech Stack
+- **Frontend Framework:** React 19 (TypeScript)
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS
+- **Deployment Platform:** AWS (Amplify / S3 + CloudFront)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Local Setup Instructions
 
-## Expanding the ESLint configuration
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com
+   cd your-repo-name
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2. **Install all dependencies:**
+   ```bash
+   npm install
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   Open `http://localhost:5173` in your browser to view the application.
