@@ -14,7 +14,7 @@ export function getTodaysLessons(date: Date = new Date()): Lesson[]{
 
   return timetable
     .filter((lesson) => lesson.day === today)
-    .sort((a, b) => a.start.localeCompare(b.start));
+    .sort((a, b) => timeToMinutes(a.start) - timeToMinutes(b.start));
 }
 
 function timeToMinutes(time: string): number {
@@ -72,7 +72,7 @@ export function getLessonStatus(
     return "IN_PROGRESS";
   }
 
-  if (getNextLesson()) {
+  if (getNextLesson(date)) {
     return "UPCOMING";
   }
 

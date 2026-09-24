@@ -39,8 +39,8 @@ function App() {
     markAsNotified(lesson.id);
   }, [now]);
 
-  const status = getLessonStatus();
-  const minutes = minutesUntilNextLesson();
+  const status = getLessonStatus(now);
+  const minutes = minutesUntilNextLesson(now);
 
   const currentLesson = getCurrentLesson(now);
   const nextLesson = getNextLesson(now);
